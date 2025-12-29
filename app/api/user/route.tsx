@@ -1,3 +1,4 @@
+
 import { NextRequest, NextResponse } from "next/server";
 import { eq } from "drizzle-orm";
 import { db } from "@/configs/db";
@@ -7,6 +8,7 @@ import { currentUser } from "@clerk/nextjs/server";
 export async function POST(req: NextRequest) {
     try {
         const user = await currentUser();
+        //good
 
         if (!user || !user.primaryEmailAddress?.emailAddress) {
             return NextResponse.json(
