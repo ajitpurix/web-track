@@ -11,13 +11,15 @@ export default function Provider({
 }) {
   const { user, isLoaded } = useUser();
 
-  // Prevent multiple API calls
-  const hasCreatedUser = useRef(false);
+  // Prevent multiple API calls per user
+  const createdUserId = useRef<string | null>(null);
 
   useEffect(() => {
-    if (!isLoaded || !user || hasCreatedUser.current) return;
+    if (!isLoaded || !user) return;
 
-    hasCreatedUser.current = true;
+    if (createdUserId.current === user.id) return;
+
+    createdUserId.current = user.id;
     createNewUser();
   }, [user, isLoaded]);
 
