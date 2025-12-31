@@ -58,7 +58,6 @@ export default function AddWebsitePage() {
         <div className="flex gap-3 pt-2">
           <button
             onClick={() => {
-              console.log({ name, url });
               router.push("/dashboard/websites");
             }}
             className="bg-red-600 hover:bg-red-700 text-white px-5 py-2 rounded-lg font-semibold"
