@@ -66,7 +66,7 @@ export default function AddWebsitePage() {
           </button>
 
           <button
-            onClick={() => router.back()}
+            onClick={() => router.push("/dashboard/websites")}
             className="px-5 py-2 rounded-lg border font-medium"
           >
             Cancel
